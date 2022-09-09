@@ -49,7 +49,6 @@ export function Movie() {
 
   const fetchMovieList = () => {
     // initial render to grab the movie list and load it from api into redux state
-    setHasData(true)
     const currentWindow = window.location.pathname.split('/')
     fetchMovie(currentWindow[currentWindow.length - 1]).then((data: MovieDetailResponse) => {
       if (data.error == null && data.items.id != undefined) handleMovieDetails(data.items)
@@ -75,6 +74,7 @@ export function Movie() {
       dispatch(addFavorite({ ...faveMovie, movieDetails: data }))
     }
     setMovieDetails(data)
+    setHasData(true)
   }
   if (errorState) {
     return (
@@ -92,7 +92,7 @@ export function Movie() {
       >
         <CircularProgress color="inherit" />
       </Backdrop>
-
+      {hasData &&
       <Paper elevation={12} sx={{ display: 'flex', m:5, alignItemsn:'center', flexWrap: width > 800 ? 'noWrap' : 'wrap' }}>
         <Box sx={{display:'flex', justifyContent:'center'}}>
           <img src={movieDetails.image} style={{ width: width > 800 ? '25rem' : '100%'}}/>
@@ -109,6 +109,7 @@ export function Movie() {
           <Typography level="body1" sx={{ fontSize: 'md', mt:'1rem'}}><b>Runtime:</b> {movieDetails.runtimeStr} Rated: {movieDetails.contentRating}</Typography>
         </Box>
       </Paper>
+    }
     </Box>
   );
 

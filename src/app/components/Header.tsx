@@ -26,7 +26,7 @@ interface Props {
 // jira: movies-5
 // description: create a reusable header for the entire component by putting it on the top level of router dom
 const drawerWidth = 240;
-const navItems = [{ name: 'Movies', link: '/movies' }, { name: 'Favorites', link: '/favorites' }];
+const navItems = [{ name: 'Movies', link: '/' }, { name: 'Favorites', link: '/favorites' }];
 
 export default function DrawerAppBar(props: Props) {
   const navigate = useNavigate();

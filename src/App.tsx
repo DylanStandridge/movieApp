@@ -13,7 +13,7 @@ function App() {
     <div className="App">
       <Routes>
             <Route path="/" element={<PersistentDrawerLeft/>}>
-              <Route path="/movies" element={<MovieList  />}/>
+              <Route index element={<MovieList  />}/>
               <Route path="/favorites" element={<MovieList  />}/>
               <Route path="/movies/:id" element={<Movie />}/>
               <Route path="*" element={<NoPage />} />
