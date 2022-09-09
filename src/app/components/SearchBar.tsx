@@ -42,12 +42,12 @@ export default function CustomizedInputBase(props: {searchMovie: (movieString: s
         placeholder="Search Movies"
         inputProps={{ 'aria-label': 'Search Movies' }}
       />
-<IconButton disabled={(searchString === '')} type="button" sx={{ p: '10px' }} aria-label="clear">
-        <ClearIcon  onClick={handleClear}/>
+<IconButton onClick={handleClear} disabled={(searchString === '')} type="button" sx={{ p: '10px' }} aria-label="clear">
+        <ClearIcon  />
       </IconButton>
     <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
-      <IconButton type="button" sx={{ p: '10px' }} aria-label="search">
-        <SearchIcon onClick={() => {props.searchMovie(searchString)}}/>
+      <IconButton onClick={() => {props.searchMovie(searchString)}} type="button" sx={{ p: '10px' }} aria-label="search">
+        <SearchIcon />
       </IconButton>
     </Paper>
   );
