@@ -31,7 +31,7 @@ export default function MovieCard(props: MovieCardData) {
         </AspectRatio>
         </CardActionArea>
         <IconButton
-          aria-label="Like minimal photography"
+          aria-label="Favorite Button"
           size="md"
           variant="solid"
           color="danger"
