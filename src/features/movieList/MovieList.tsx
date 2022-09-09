@@ -149,7 +149,7 @@ export function MovieList() {
         open={!hasData}
         invisible={hasData}
       >
-        <CircularProgress color="inherit" />
+        <CircularProgress aria-label='loading spinner' color="inherit" />
       </Backdrop>
       <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
         <CustomizedInputBase searchMovie={searchMovies} />

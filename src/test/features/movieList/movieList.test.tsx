@@ -1,12 +1,7 @@
-import React, { Component } from 'react';
 import { BrowserRouter, BrowserRouter as Router, Navigate } from "react-router-dom";
-import { createRenderer } from 'react-dom/test-utils';
-import { debug } from 'console';
 import {MovieList} from '../../../features/movieList/MovieList'
 import { fireEvent, render, screen } from '@testing-library/react';
-import App from '../../../App';
 import { Provider } from 'react-redux';
-import { configureStore, createStore } from '@reduxjs/toolkit';
 import { addMovie, addMovies, MovieState } from '../../../features/movieList/MovieSlice';
 import { FavoriteMovie } from '../../../features/movieList/MovieListTypes';
 import { store } from '../../../app/store';
@@ -56,12 +51,10 @@ test('render movie list and validate its search bar is displayed with loading sc
     render(<MockMovieListWithoutItems />)
     const searchBar = await screen.findByPlaceholderText("Search Movies")
     const searchClearButton = await screen.findByLabelText("clear")
-    const loadingSpinner = await screen.findByLabelText('loading spinner')
-
+    const loadingSpinner = await screen.findByLabelText("loading spinner")
     expect(searchClearButton).toBeDisabled()
     expect(searchBar).toBeInTheDocument()
     expect(loadingSpinner).toBeVisible()
-    fireEvent.click(loadingSpinner)
 });
 
 
@@ -70,7 +63,7 @@ test('find the elements favorite button, click it, and then validate the redux s
     expect(store.getState().movieState.regMovies.length).toBeTruthy
     const favoritesIcon = await screen.findByLabelText ('Favorite Button')
     expect(favoritesIcon).toBeInTheDocument()
-    screen.debug()
+    fireEvent.click(favoritesIcon)
     expect(store.getState().movieState.favorites.length).toBeTruthy
     expect(store.getState().movieState.regMovies.length).toBeFalsy
 });
