@@ -28,3 +28,4 @@ describe('counter reducer', () => {
       movieDetails: null, isFavorite: false } as FavoriteMovie ));
     expect(actual.regMovies[0].id).toEqual('tt1234');
   });
+});

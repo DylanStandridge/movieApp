@@ -4,7 +4,7 @@ import { Movie, MovieResponse } from "./MovieListTypes"
 
 // Swagger Documentation: https://imdb-api.com/api#Top250Movies-header
 export async function fetchMovies(): Promise<MovieResponse>{
-  return fetch("https://imdb-api.com/en/API/Top250Movies/${apiKey}")
+  return fetch("https://imdb-api.com/en/API/Top250Movies/k_sb7e4jl8")
   .then((response) => response.json())
   .then((data) => ({
           items: data.items as Movie[],
