@@ -5,15 +5,22 @@ import { store } from './app/store';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
-
+import { QueryClient, QueryClientProvider } from 'react-query';
+import {BrowserRouter} from 'react-router-dom'
+// Initialze the client
+const queryClient = new QueryClient();
 const container = document.getElementById('root')!;
 const root = createRoot(container);
 
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <QueryClientProvider client={queryClient}>
+      <Provider store={store}>
+      <BrowserRouter>
+        <App/>
+      </BrowserRouter>
+      </Provider>
+    </QueryClientProvider>
   </React.StrictMode>
 );
 
